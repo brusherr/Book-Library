@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="add-books">
+            <div class="add-title">
+                <h1>Add New Book</h1>
+            </div>
+            <form class="add-book">
+                <label for="title">Title*</label>
+                <input type="text" id="title" class="title" minlength="2" placeholder="The Hobbit" required>
+                <label for="author">Author*</label>
+                <input type="text" id="author" class="author" minlength="2" placeholder="by J.R.R. Tolkien" required>
+                <label for="pages">Pages*</label>
+                <input type="number" id="pages" class="pages" minlength="1" placeholder="256" required>
+                <label for="read">Read*</label>
+                <input type="text" id="read" class="read" minlength="2" placeholder="not read yet" required>
+            </form>
+            <div class="btn">
+                <button type="submit" class="submit-to-library">Submit To Library</button>
+                <button type="reset" class="reset-form">Reset Form</button>
+            </div>
+            <div class="error">Please make sure all fields are filled in correctly.</div>
+        </div>
+        <div class="library-books">
+            <div class="add-title">
+                <h1>Current Library</h1>
+            </div>
+            <div class="books"></div>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
