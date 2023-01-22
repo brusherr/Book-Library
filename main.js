@@ -18,6 +18,14 @@ function addBookToLibrary(Title, Author, Pages, Read) {
 //Function making div with class of card and display on web.
 function displayOnPage() {
   const books = document.querySelector('.books');
+
+  //Remove previous div's from array before through loop.
+  const removeDiv = document.querySelectorAll('.card');
+  for (let i = 0; i < removeDiv.length; i++) {
+    removeDiv[i].remove();
+    console.log('i is =', i)
+  }
+
   //Loop over array and making div card for each item inside
   myLibrary.forEach( myLibrary => {
     const card = document.createElement('div');
@@ -29,8 +37,11 @@ function displayOnPage() {
       para.textContent = `${key}: ${myLibrary[key]}`;
       card.appendChild(para);
     }
+    const removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-book-button');
+    removeBtn.textContent = 'X';
+    card.appendChild(removeBtn);
   });
-  myLibrary.pop('card')
 }
 // Event listener to fire submit button.
 const submitBtn = document.querySelector('.submit-to-library');
