@@ -12,7 +12,7 @@ function Book(Title, Author, Pages, Read) {
 function addBookToLibrary(Title, Author, Pages, Read) {
   const book = new Book(Title, Author, Pages, Read);
   myLibrary.push(book);
-  displayOnPage()
+  displayOnPage();
 }
 
 //Function making div with class of card and display on web.
@@ -23,24 +23,26 @@ function displayOnPage() {
   const removeDiv = document.querySelectorAll('.card');
   for (let i = 0; i < removeDiv.length; i++) {
     removeDiv[i].remove();
-    console.log('i is =', i)
   }
 
   //Loop over array and making div card for each item inside
-  myLibrary.forEach( myLibrary => {
+  myLibrary.forEach((myLibrary) => {
     const card = document.createElement('div');
     card.classList.add('card');
     books.appendChild(card);
+
 
     for (const key in myLibrary) {
       const para = document.createElement('p');
       para.textContent = `${key}: ${myLibrary[key]}`;
       card.appendChild(para);
     }
-    const removeBtn = document.createElement('button');
-    removeBtn.classList.add('remove-book-button');
-    removeBtn.textContent = 'X';
-    card.appendChild(removeBtn);
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-book-button');
+        removeBtn.textContent = 'X';
+        card.appendChild(removeBtn);
+        removeBtn.addEventListener('click', () => {
+        })
   });
 }
 // Event listener to fire submit button.
@@ -51,12 +53,12 @@ submitBtn.addEventListener('click', () => {
   let Pages = document.querySelector('.pages').value;
   let Read = document.querySelector('.read').value;
 
-  if ((Title === '') || (Author === '') || (Pages === '') || (Read === '')) {
-     document.querySelector('.error').style.display = 'block';
-     return;
-   } else {
+  if (Title === '' || Author === '' || Pages === '' || Read === '') {
+    document.querySelector('.error').style.display = 'block';
+    return;
+  } else {
     document.querySelector('.error').style.display = 'none';
-   }
+  }
   addBookToLibrary(Title, Author, Pages, Read);
   document.querySelector('.add-book').reset();
 });
@@ -64,4 +66,4 @@ submitBtn.addEventListener('click', () => {
 const resetBtn = document.querySelector('.reset-form');
 resetBtn.addEventListener('click', () => {
   document.querySelector('.add-book').reset();
-})
+});
